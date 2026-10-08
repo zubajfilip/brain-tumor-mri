@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+
+# Dataset (too large for git, download from Kaggle)
+data/
+
+# Trained models
+models/
+*.pt
+
+# Reference solution (local only)
+riesenie/
+
+# Python / tool caches
+__pycache__/
+*.pyc
+.ruff_cache/
+
+# Editor / OS
+tempCodeRunnerFile.py
+.vscode/
+.DS_Store

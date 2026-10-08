@@ -1,0 +1,14 @@
+[tool.ruff]
+extend-exclude = ["riesenie", "tempCodeRunnerFile.py"]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E", "W",  # štýl podľa PEP 8
+    "F",       # chyby: nepoužité importy, nedefinované premenné
+    "I",       # poradie importov
+    "N",       # pomenovanie (snake_case, UPPER_CASE...)
+    "A",       # prepisovanie vstavaných funkcií (napr. dir)
+    "B",       # časté chyby a podozrivé konštrukcie
+    "UP",      # moderná syntax Pythonu
+]
