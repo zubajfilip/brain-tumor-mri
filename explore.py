@@ -30,36 +30,29 @@ def get_image_stats(folder: Path) -> tuple[Counter[tuple[int, int]], Counter[str
     return (sizes, modes)
 
 
+def print_image_stats(name: str, sizes: Counter, modes: Counter) -> None:
+    """Print the most common image sizes and modes of one dataset split."""
+    print(f"===================={name.upper()} DATA==========================")
+    print("SIZES")
 
-def main():
+    for key, value in sizes.most_common(5):
+        print(f"Size: {key}, Occurs: {value}")
+    print(f"Distinct sizes: {len(sizes)}")
+
+    print("MODES")
+
+    for key, value in modes.most_common(5):
+        print(f"Mode: {key}, Occurs: {value}")
+    print(f"Distinct modes: {len(modes)}")
+
+
+def main() -> None:
     for folder in [TRAINING_DIR, TESTING_DIR]:
         counts = count_data(folder)
         print(f"Counts for {folder}: {counts}")
 
-    sizes_train, modes_train = get_image_stats(Path("data/Training"))
-    sizes_test, modes_test = get_image_stats(Path("data/Testing"))
-
-    print("====================TRAIN DATA==========================")
-    print("SIZES")
-    for key, value in sizes_train.most_common(5):
-        print(f"Size: {key}, Occurs: {value}")
-    print(f"Total: {len(sizes_train)}")
-
-    print("MODES")
-    for key, value in modes_train.most_common(5):
-        print(f"Mode: {key}, Occurs: {value}")
-    print(f"Total: {len(modes_train)}")
-
-    print("====================TEST DATA==========================")
-    print("SIZES")
-    for key, value in sizes_test.most_common(5):
-        print(f"Size: {key}, Occurs: {value}")
-    print(f"Total: {len(sizes_test)}")
-
-    print("MODES")
-    for key, value in modes_test.most_common(5):
-        print(f"Mode: {key}, Occurs: {value}")
-    print(f"Total: {len(modes_test)}")
+        sizes, modes = get_image_stats(folder)
+        print_image_stats(folder.name, sizes, modes)
 
 
 if __name__ == "__main__":

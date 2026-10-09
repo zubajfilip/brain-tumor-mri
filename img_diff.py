@@ -12,9 +12,9 @@ def main():
     print(pixels1.shape)
     print(pixels2.shape)
 
-    red = pixels1[: , : , 0]
-    green = pixels1[: , : , 1]
-    blue = pixels1[: , : , 2]
+    red = pixels1[:, :, 0]
+    green = pixels1[:, :, 1]
+    blue = pixels1[:, :, 2]
 
     x = [red, green, blue]
 
